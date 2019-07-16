@@ -17,48 +17,51 @@
     <nav class="navbar navbar-defaul navbar-fixed-top navbar-transparent">
       <div class="container">
         <%= link_to topics_path do %>
-        <span><%= image_tag "icons/logo.png", class: "navbar-brand" %></span>
-      <% end %>
+          <span><%= image_tag "icons/logo.png", class: "navbar-brand" %></span>
+        <% end %>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
           <li>
             <%= link_to logout_path, method: :delete do %>
-            <%= image_tag "icons/logout.png" %>
-          <% end %>
-        </li>
+              <%= image_tag "icons/logout.png" %>
+            <% end %>
+          </li>
 
-        <li>
-          <%= link_to favorites_index_path do %>
-          <%= image_tag "icons/heart.png" %>
+          <li>
+            <%= link_to favorites_index_path do %>
+              <%= image_tag "icons/heart.png" %>
+            <% end %>
+          </li>
+
+          <li>
+            <%= link_to new_topic_path do %>
+              <%= image_tag "icons/camera.png" %>
+            <% end %>
+          </li>
+        <% else %>
+
+          <li>
+            <%= link_to new_user_path do %>
+              <%= image_tag "icons/register.png" %>
+            <% end %>
+          </li>
+          
+          <li>
+            <%= link_to login_path do %>
+              <%= image_tag "icons/login.png" %>
+            <% end %>
+          </li>
         <% end %>
-      </li>
-
-    <li>
-      <%= link_to new_topic_path do %>
-      <%= image_tag "icons/camera.png" %>
-    <% end %>
-  </li>
-<% else %>
-
-  <li>
-    <%= link_to new_user_path do %>
-    <%= image_tag "icons/register.png" %>
-  <% end %>
-  <li>
-    <%= link_to login_path do %>
-    <%= image_tag "icons/login.png" %>
-  <% end %>
-</li>
-  <% end %>
-</ul>
-</div>
-</nav>
+      </ul>
+    </div>
+  </nav>
 <%= yield %>
 
-<script>
-$(function () {
-$(".alert").fadeOut(5000);
-});
-</script>
-</body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $(".alert").fadeOut(5000);
+      });
+    </script>
+  </body>
 </html>
